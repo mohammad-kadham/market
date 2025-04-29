@@ -12,7 +12,11 @@
     
     <div class="container">
       <div class="content">
-       
+       <%products.forEach(product=>{%>
+        <h1><%-product.productName%></h1>
+        <h1><%-product.price%></h1>
+        <hr>
+       <%})%>
       </div>
     </div>
     
