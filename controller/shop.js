@@ -2,7 +2,7 @@ const Product = require('../model/addProduct')
 const fs = require('fs');
 module.exports.getMainPage = (req, res) => {
   Product.fetchAllProduct((products) => {
-    console.log(products);
+   
     res.render('index', { path: '/', pageTitle: 'shop', products: products })
   })
 
@@ -15,7 +15,10 @@ module.exports.getAddProduct = (req, res) => {
 }
 module.exports.postAddProduct = (req, res) => {
   const { title, description, price } = req.body
-  const product = new Product('dgetdf', title, description, price)
+  const imagePath =  req.file.filename
+  console.log(req.file);
+  
+  const product = new Product(null, title, description, price,imagePath)
   product.saveProduct()
 
 

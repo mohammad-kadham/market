@@ -1,17 +1,20 @@
 const fs = require('fs');
+const {v1:uuidv1,v4:uuidv4} = require('uuid')
+
 const pathOfFile = './output.txt'
 const path = require('path')
 class Product {
 
-    constructor(id, productName, productDes, price) {
-        this.id = id;
+    constructor(id, productName, productDes, price,image) {
+        this.id = uuidv4()
         this.productName = productName;
         this.productDes = productDes;
         this.price = price;
+        this.image = image;
     }
 
     saveProduct() {
-        this.readFileFn(pathOfFile, (err, data) => {
+        Product.readFileFn(pathOfFile, (err, data) => {
             if (!err) {
                 const productArray = JSON.parse(data)
                 productArray.push(this)
@@ -50,7 +53,7 @@ class Product {
         })
     }
    static fetchAllProduct(cb) {
-        this.readFileFn(pathOfFile, (err, data) => {
+        Product.readFileFn(pathOfFile, (err, data) => {
             if (!err) {
                 const products = JSON.parse(data)
                 cb( products)
