@@ -13,4 +13,9 @@ router.post('/add-product',shopController.postAddProduct)
 router.post('/delete-product/:productId',shopController.postDeleteProduct)
 
 
+router.get('/signup',shopController.getSignup)
+router.post('/signup',shopController.postSignup)
+
+
+
 module.exports = router;
