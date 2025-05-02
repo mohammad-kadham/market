@@ -21,6 +21,11 @@
             
             <img src="<%= product.image %>" width="200px"  alt="">
             <a href="/products/<%= product.id %>" class="btn btn-view">View Details</a>
+            <hr>
+           <form action="/delete-product/<%= product.id %>" method="post"> 
+
+          <button type="submit" class="btn btn-view">Delete</button>
+          </form>
           </div>
         <% }); %>
       <% } else { %>
